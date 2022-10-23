@@ -2,7 +2,7 @@
 
 #include "game.h"
 
-void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
+void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)  //åˆå§‹åŒ–é›·åŒº
 {
 	int i = 0;
 	int j = 0;
@@ -18,12 +18,12 @@ void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
 
 
 
-void DisplayBoard(char board[ROWS][COLS], int row, int col)
+void DisplayBoard(char board[ROWS][COLS], int row, int col)  //æ˜¾ç¤ºé›·åŒº
 {
 	int i = 0;
 	int j = 0;
 
-	printf("-----------É¨À×ÓÎÏ·--------------\n");
+	printf("-----------æ‰«é›·æ¸¸æˆ--------------\n");
 	for(i=0;i<=col;i++)
 	{
 		printf("%d ", i);
@@ -38,11 +38,11 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 		}
 		printf("\n");
 	}
-	printf("-----------É¨À×ÓÎÏ·--------------\n");
+	printf("-----------æ‰«é›·æ¸¸æˆ--------------\n");
 
 }
 
-void SetMine(char mine[ROWS][COLS], int row, int col)
+void SetMine(char mine[ROWS][COLS], int row, int col)  //è®¾ç½®é›·åŒº
 {
 	int count = EasyCount;
 
@@ -59,7 +59,7 @@ void SetMine(char mine[ROWS][COLS], int row, int col)
 	}
 }
 
-int find_mine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
+int find_mine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col) //æœå¯»å‘¨å›´å…«ä¸ªæ ¼å­çš„åœ°é›·ä¸ªæ•°
 {
 	if (row >= 1 && row <= 9 && col >= 1 && col <= 9)
 	{
@@ -87,7 +87,7 @@ int find_mine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	return 0;
 }
 
-void ExpandBoard(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int* win)
+void ExpandBoard(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int* win)  //å‘å¤–æ‰©å±•
 {
 	int count = find_mine(mine, show, x, y);
 	(*win)++;
@@ -131,7 +131,7 @@ void ExpandBoard(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int
 }
 
 
-void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
+void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)  //æ¸¸æˆå¼€å§‹æ€»æ“æ§
 {
 	int x = 0;
 	int y = 0;
@@ -140,7 +140,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	while (1)
 	{
 		
-		printf("ÇëÊäÈëÄãËùÑ¡µÄ×ø±ê£º(Èç£º2¡¾¿Õ¸ñ¡¿3£¬±íÊ¾µÚ¶şĞĞµÚÈıÁĞ)");
+		printf("è¯·è¾“å…¥ä½ æ‰€é€‰çš„åæ ‡ï¼š(å¦‚ï¼š2ã€ç©ºæ ¼ã€‘3ï¼Œè¡¨ç¤ºç¬¬äºŒè¡Œç¬¬ä¸‰åˆ—)");
 		scanf("%d %d", &x, &y);
 		while (getchar() != '\n')
 			continue;
@@ -149,7 +149,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 		{
 			if (mine[x][y] == '1')
 			{
-				printf("ÄãÒÑ±»Õ¨ËÀ\n");
+				printf("ä½ å·²è¢«ç‚¸æ­»\n");
 				DisplayBoard(mine, ROW, COL);
 				break;
 			}
@@ -165,14 +165,14 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 		}
 		else
 		{
-			printf("·Ç·¨ÊäÈë£¡£¡£¡\n");
+			printf("éæ³•è¾“å…¥ï¼ï¼ï¼\n");
 		}
 		
 	}
 
 end:if ((ROW) * (COL)-win == EasyCount)
 	{
-		printf("ÄãÓ®ÁË£¡£¡\n");
+		printf("ä½ èµ¢äº†ï¼ï¼\n");
 		DisplayBoard(mine, ROW, COL);
 
 	}
