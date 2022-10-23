@@ -2,7 +2,7 @@
 
 #include "game.h"
 
-void menue()
+void menue()  //开始界面
 {
 	printf("***************************************\n");
 	printf("**********       1.PLAY        ********\n");
@@ -11,7 +11,7 @@ void menue()
 }
 
 
-void game()
+void game()  //游戏进行程序
 {
 	char mine[ROWS][COLS]={0};
 	char show[ROWS][COLS]={0};
@@ -32,14 +32,14 @@ void game()
 	printf("\n");
 }
 
-int main()
+int main()  //主函数
 {
 	int input = 0;
 	srand((unsigned int)time(NULL));
 	do
 	{
 		menue();
-		printf("��ѡ��");
+		printf("请输入你的选择");
 		scanf("%d", &input);
 		while (getchar() != '\n')
 			continue;
